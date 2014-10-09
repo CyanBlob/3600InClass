@@ -1,10 +1,14 @@
 #include <pthread.h>
 #include <stdio.h>
 
-void* inc_n(void* n)
+void* inc_n(void *n)
 {
    /* increment n to 100 */
-   while(++((int*)n) < 1000000000);
+
+   int *count;
+   count = (int *) n;
+
+   while(++*count < 1000000000);
    pthread_exit(NULL);
 }
 
