@@ -1,0 +1,14 @@
+Script started on Wed 08 Oct 2014 10:36:28 AM CDT
+
+phs0004@faculty:~/public/3600/InClass10-9-14$ gcc increment.c
+phs0004@faculty:~/public/3600/InClass10-9-14$ time ./a.out
+x: 0, y: 0
+x increment finished
+y increment finished
+x: 1000000000, y: 1000000000
+
+real	0m8.094s
+user	0m8.085s
+sys	0m0.004s
+
+Script done on Wed 08 Oct 2014 10:36:51 AM CDT
