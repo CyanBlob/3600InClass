@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 void inc_n(int *n)
 {
@@ -11,24 +10,18 @@ int main()
 {
 
     int x = 0, y = 0;
-    pid_t pid;
     printf("x: %d, y: %d\n", x, y);
-  
-    pid = fork();
-
-    if( pid == 0)
-    {
-    	inc_n(&x);
-	printf("x increment finished\n");
-	return 0;
-    }
-
-    if( pid > 0)
-    {
-	inc_n(&y);
-	printf("y increment finished\n");
-    }
+  if (fork() == 0) {
+    inc_n(&x);
+    printf("x increment finished\n");
+    printf("x: %d, y: %d\n", x, y);
+    return 1;
+  }
+  else {
+    inc_n(&y);
+    printf("y increment finished\n");
+    printf("x: %d, y: %d\n", x, y);
+  }
     wait();
-    printf("x: %d, y: %d\n", x, y);
     return 1;
 }
