@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void inc_n(int *n)
 {
@@ -6,22 +7,27 @@ void inc_n(int *n)
    while(++(*n) < 1000000000);
 }
 
+
 int main()
 {
+  int x = 0, y = 0;
+  printf("x: %d, y: %d\n", x, y);
 
-    int x = 0, y = 0;
-    printf("x: %d, y: %d\n", x, y);
-  if (fork() == 0) {
+  pid_t pid = fork();
+
+  //child process
+  if (pid == 0) {
     inc_n(&x);
     printf("x increment finished\n");
     printf("x: %d, y: %d\n", x, y);
-    return 1;
+    return 0;
   }
+  //parent process
   else {
     inc_n(&y);
     printf("y increment finished\n");
     printf("x: %d, y: %d\n", x, y);
-  }
     wait();
-    return 1;
+    return 0;
+  }
 }
