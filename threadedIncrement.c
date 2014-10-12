@@ -2,9 +2,8 @@
 #include <pthread.h>
 #include <stdio.h>
 
-void* inc_n(void* v)
+void inc_n(int* n)
 {
-   int* n = (int*) v;
    /* increment n to 100 */
    while(++(*n) < 1000000000);
    pthread_exit(0);
@@ -18,9 +17,9 @@ int main()
 
     printf("x: %d, y: %d\n", x, y);
 
-    // create threads
-    pthread_create(&xtid, NULL, inc_n, &x);
-    pthread_create(&ytid, NULL, inc_n, &y);
+    // create threads with function pointer cast
+    pthread_create(&xtid, NULL, (void* (*)(void*)) inc_n, &x);
+    pthread_create(&ytid, NULL, (void* (*)(void*)) inc_n, &y);
 
     // wait for threads to finish
     pthread_join(xtid, (void**) &retval);
