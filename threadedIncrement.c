@@ -1,4 +1,18 @@
-// compile with: gcc threadedIncrement.c -lpthread
+/*
+ Group:   16
+ Members: George Davis
+          Shashi Dongur
+          Gary Johnson
+          Andrew Thomas
+ Class:   CSCE3600
+ Session: Fall 2014
+ Section: T/Th 10:00am
+ Project: In-Class Assignment -- Concurrency
+ Compile: gcc threadedIncrement.c -lpthread
+ Note:    Performance of this code on the CSE machines is unpredictable;
+          Sometimes this runs fast, sometimes it runs slow.
+*/
+
 #include <pthread.h>
 #include <stdio.h>
 

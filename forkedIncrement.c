@@ -1,3 +1,16 @@
+/*
+ Group:   16
+ Members: George Davis
+          Shashi Dongu
+          Gary Johnson
+          Andrew Thomas
+ Class:   CSCE3600
+ Session: Fall 2014
+ Section: T/Th 10:00am
+ Project: In-Class Assignment -- Concurrency
+ Compile: gcc forkedIncrement.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
